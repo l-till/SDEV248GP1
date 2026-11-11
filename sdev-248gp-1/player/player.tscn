@@ -443,4 +443,6 @@ visible = false
 shape = SubResource("CapsuleShape2D_sbwqj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1954493572]
+position = Vector2(8, -8)
+scale = Vector2(0.125, 0.12109375)
 texture = ExtResource("2_rkbax")

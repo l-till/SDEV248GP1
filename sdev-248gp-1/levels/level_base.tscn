@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://4xpyo7vueykh"]
 
 [ext_resource type="Texture2D" uid="uid://3uxpx6b7e403" path="res://levels/level_assets/Tilemap_color1.png" id="1_hk6b7"]
+[ext_resource type="PackedScene" uid="uid://dswbqha03fl64" path="res://player/player.tscn" id="2_nmr65"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hk6b7"]
 texture = ExtResource("1_hk6b7")
@@ -710,3 +711,5 @@ tile_set = SubResource("TileSet_t3wkl")
 [node name="Layer2" type="TileMapLayer" parent="." unique_id=1845173386]
 use_parent_material = true
 tile_set = SubResource("TileSet_t3wkl")
+
+[node name="Player" parent="." unique_id=108962870 instance=ExtResource("2_nmr65")]
