@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://4xpyo7vueykh"]
 
 [ext_resource type="Texture2D" uid="uid://3uxpx6b7e403" path="res://levels/level_assets/Tilemap_color1.png" id="1_hk6b7"]
+[ext_resource type="Script" uid="uid://bpql5neuytsv1" path="res://levels/level_base.gd" id="1_vmt1o"]
 [ext_resource type="PackedScene" uid="uid://dswbqha03fl64" path="res://player/player.tscn" id="2_nmr65"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hk6b7"]
@@ -702,7 +703,8 @@ texture = ExtResource("1_hk6b7")
 [sub_resource type="TileSet" id="TileSet_t3wkl"]
 sources/0 = SubResource("TileSetAtlasSource_hk6b7")
 
-[node name="RoomBase" type="Node2D" unique_id=1683283907]
+[node name="LevelBase" type="Node2D" unique_id=1683283907]
+script = ExtResource("1_vmt1o")
 
 [node name="Layer1" type="TileMapLayer" parent="." unique_id=1902789999]
 use_parent_material = true

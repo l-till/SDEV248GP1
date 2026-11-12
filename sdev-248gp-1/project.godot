@@ -20,8 +20,15 @@ GameState="*uid://f8yo1sn3hwut"
 
 [display]
 
+window/size/viewport_width=255
+window/size/viewport_height=177
+window/size/mode=2
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/scale_mode="integer"
+
+[global_group]
+
+Player=""
 
 [input]
 

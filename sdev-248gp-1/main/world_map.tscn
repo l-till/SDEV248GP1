@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dcbrd2apk1p01"]
+
+[ext_resource type="Texture2D" uid="uid://tw1uxt61dbx" path="res://levels/level_assets/Screenshot_20261110_171420.png" id="1_sw35e"]
+[ext_resource type="FontFile" uid="uid://bg5vv5vrftqt6" path="res://assets/Kenney Thick.ttf" id="2_v3pcd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_65f5o"]
+font = ExtResource("2_v3pcd")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_qxjop"]
+font = ExtResource("2_v3pcd")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_piwys"]
+font = ExtResource("2_v3pcd")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_q0h08"]
+font = ExtResource("2_v3pcd")
+font_size = 32
+
+[node name="WorldMap" type="Node2D" unique_id=1991787104]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1708060121]
+offset_right = 1138.0
+offset_bottom = 650.0
+texture = ExtResource("1_sw35e")
+
+[node name="Label" type="Label" parent="." unique_id=1847753074]
+offset_left = 260.0
+offset_top = -116.0
+offset_right = 386.0
+offset_bottom = -32.0
+text = "A"
+label_settings = SubResource("LabelSettings_65f5o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1710674435]
+offset_left = 771.0
+offset_top = -123.0
+offset_right = 912.0
+offset_bottom = -39.0
+text = "B"
+label_settings = SubResource("LabelSettings_qxjop")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="." unique_id=181842350]
+offset_left = -133.0
+offset_top = 120.0
+offset_right = -59.0
+offset_bottom = 234.0
+text = "1"
+label_settings = SubResource("LabelSettings_piwys")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="." unique_id=1891725696]
+offset_left = -137.0
+offset_top = 412.0
+offset_right = -44.0
+offset_bottom = 519.0
+text = "2"
+label_settings = SubResource("LabelSettings_q0h08")
+horizontal_alignment = 1
+vertical_alignment = 1
