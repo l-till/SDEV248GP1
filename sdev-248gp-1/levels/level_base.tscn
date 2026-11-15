@@ -817,7 +817,6 @@ texture = ExtResource("3_da5si")
 7:8/0 = 0
 7:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:6/0 = 0
-5:6/0/y_sort_origin = 4
 5:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(6.868206, 3.2665844, 4.467125, 7.259077, -4.8579974, 6.9240437, -5.9189396, 5.36055, -5.8072615, 2.8477926)
 9:7/0 = 0
 9:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -846,12 +845,15 @@ use_parent_material = true
 tile_set = SubResource("TileSet_t3wkl")
 
 [node name="Layer2" type="TileMapLayer" parent="." unique_id=1845173386]
-y_sort_enabled = true
 use_parent_material = true
 tile_set = SubResource("TileSet_t3wkl")
 
 [node name="Layer3" type="TileMapLayer" parent="." unique_id=1680859508]
 y_sort_enabled = true
+use_parent_material = true
+tile_set = SubResource("TileSet_t3wkl")
+
+[node name="Layer4" type="TileMapLayer" parent="." unique_id=1995242306]
 use_parent_material = true
 tile_set = SubResource("TileSet_t3wkl")
 

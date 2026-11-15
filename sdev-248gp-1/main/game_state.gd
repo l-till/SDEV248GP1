@@ -8,6 +8,7 @@ signal on_trigger_player_spawn
 const scene_b2 = preload("res://levels/b2.tscn")
 const scene_b2c = preload("res://levels/b2c.tscn")
 const scene_b1 = preload("res://levels/b1.tscn")
+const scene_b1c = preload("res://levels/b1c.tscn")
 const scene_a1 = preload("res://levels/a1.tscn")
 
 
@@ -24,6 +25,8 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_b2c
 		"b1":
 			scene_to_load = scene_b1
+		"b1c":
+			scene_to_load = scene_b1c
 		"a1":
 			scene_to_load = scene_a1
 		
