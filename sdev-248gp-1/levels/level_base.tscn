@@ -807,6 +807,7 @@ texture = ExtResource("3_da5si")
 7:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, -0.6924572, -6.2321053, -0.395689, -5.539648, 8, 8, 8)
 6:4/size_in_atlas = Vector2i(1, 2)
 6:4/0 = 0
+6:4/0/texture_origin = Vector2i(0, 8)
 7:7/0 = 0
 7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:7/0 = 0
@@ -816,7 +817,8 @@ texture = ExtResource("3_da5si")
 7:8/0 = 0
 7:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:6/0 = 0
-5:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.9461155, -1.2859898, -0.09892273, -4.0558147, 3.7590466, -4.1547375, 7.122406, -0.7913799, 6.9240437, 5.0255146, 4.1320906, 8, -4.6346416, 8, -6.421491, 5.193033)
+5:6/0/y_sort_origin = 4
+5:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(6.868206, 3.2665844, 4.467125, 7.259077, -4.8579974, 6.9240437, -5.9189396, 5.36055, -5.8072615, 2.8477926)
 9:7/0 = 0
 9:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:8/0 = 0
@@ -836,6 +838,7 @@ sources/0 = SubResource("TileSetAtlasSource_hk6b7")
 sources/1 = SubResource("TileSetAtlasSource_ep22m")
 
 [node name="LevelBase" type="Node2D" unique_id=1683283907]
+y_sort_enabled = true
 script = ExtResource("1_vmt1o")
 
 [node name="Layer1" type="TileMapLayer" parent="." unique_id=1902789999]
@@ -843,10 +846,12 @@ use_parent_material = true
 tile_set = SubResource("TileSet_t3wkl")
 
 [node name="Layer2" type="TileMapLayer" parent="." unique_id=1845173386]
+y_sort_enabled = true
 use_parent_material = true
 tile_set = SubResource("TileSet_t3wkl")
 
 [node name="Layer3" type="TileMapLayer" parent="." unique_id=1680859508]
+y_sort_enabled = true
 use_parent_material = true
 tile_set = SubResource("TileSet_t3wkl")
 
