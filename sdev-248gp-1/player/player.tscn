@@ -516,6 +516,9 @@ animations = [{
 radius = 4.0
 height = 8.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uoxnd"]
+size = Vector2(20, 10)
+
 [node name="Player" type="CharacterBody2D" unique_id=108962870 groups=["Player"]]
 y_sort_enabled = true
 script = ExtResource("1_rkbax")
@@ -524,9 +527,11 @@ script = ExtResource("1_rkbax")
 texture_filter = 1
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_qpa8y")
-animation = &"idle_down"
+animation = &"attack_down"
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1223079847]
+visible = false
 position = Vector2(0, -4)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_sbwqj")
@@ -536,3 +541,8 @@ limit_left = 0
 limit_top = 0
 limit_right = 255
 limit_bottom = 177
+
+[node name="SwordHitbox" type="Area2D" parent="." unique_id=114329386]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordHitbox" unique_id=1007244788]
+shape = SubResource("RectangleShape2D_uoxnd")
