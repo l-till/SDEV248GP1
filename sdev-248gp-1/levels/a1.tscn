@@ -30,6 +30,9 @@ position = Vector2(-35, 1)
 
 [node name="Door_C" parent="Doors" index="1" unique_id=1327461777 instance=ExtResource("2_lmb71")]
 position = Vector2(120, 0)
+destination_level_tag = "a1c"
+destination_door_tag = "C"
+spawn_direction = "down"
 
 [node name="CollisionShape2D" parent="Doors/Door_C" index="0" unique_id=123275524]
 position = Vector2(0, -10)
@@ -37,5 +40,15 @@ position = Vector2(0, -10)
 [node name="Spawn" parent="Doors/Door_C" index="1" unique_id=418582168]
 position = Vector2(0, 30)
 
+[node name="Door_S" parent="Doors" index="2" unique_id=648312772 instance=ExtResource("2_lmb71")]
+position = Vector2(208, 187)
+destination_level_tag = "a2"
+destination_door_tag = "N"
+spawn_direction = "up"
+
+[node name="Spawn" parent="Doors/Door_S" index="1" unique_id=418582168]
+position = Vector2(0, -25)
+
 [editable path="Doors/Door_E"]
 [editable path="Doors/Door_C"]
+[editable path="Doors/Door_S"]
