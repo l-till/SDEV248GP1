@@ -9,21 +9,30 @@ signal life_changed(new_life)
 enum PlayerState {IDLE, WALKING, ATTACKING, ROLLING, STUNNED, DEAD }
 
 # Constants
-
+const HITBOX_POSITIONS := {
+	"right": {"pos": Vector2(10, -6),   "rot": 0},
+	"down":  {"pos": Vector2(2, 1),   "rot": 90},
+	"left":  {"pos": Vector2(-10, -6),  "rot": 0},
+	"up":    {"pos": Vector2(-2, -19),  "rot": 90},
+}
 
 # Variables
-var speed := 100
+@export var speed := 100
+@export var health := 3
 var player_state = PlayerState.IDLE
 var last_direction := Vector2.DOWN
 var movable = true
 var life = 3: set = set_life
+var enemy_inattack_range = false
+var enemy_attack_cooldown = true
+var hit_this_swing: Array = []
 @onready var hit_pivot: Node2D = $HitPivot
 @onready var sword_hitbox: Area2D = $HitPivot/SwordHitbox
 
 #
 func _ready():
 	GameState.on_trigger_player_spawn.connect(_on_spawn)
-	sword_hitbox.body_entered.connect(_on_sword_hit)
+#	sword_hitbox.body_entered.connect(_on_sword_hit)
 	sword_hitbox.monitoring = false
 	change_state(PlayerState.IDLE)
 
@@ -79,8 +88,11 @@ func get_facing() -> String:
 func attack():
 	change_state(PlayerState.ATTACKING)
 	velocity = Vector2.ZERO
+	hit_this_swing.clear()
 	var facing = get_facing()
-	hit_pivot.rotation = last_direction.angle()
+	var box = HITBOX_POSITIONS[facing]
+	sword_hitbox.position = box["pos"]
+	sword_hitbox.rotation_degrees = box["rot"]
 	sword_hitbox.set_deferred("monitoring", true)
 
 	$AnimatedSprite2D.play("attack_" + facing)
@@ -91,8 +103,11 @@ func attack():
 		change_state(PlayerState.IDLE)
 
 func _on_sword_hit(body):
-	if body != self and body.has_method("take_damage"):
-		body.take_damage(1)
+	if body == self or body in hit_this_swing:
+			return
+	if body.has_method("take_damage"):
+		hit_this_swing.append(body)
+		body.take_damage(1, global_position)
 
 # function for animation
 func play_anim(direction: Vector2):
@@ -112,3 +127,13 @@ func play_anim(direction: Vector2):
 			
 	if anim != "":
 		$AnimatedSprite2D.play(anim)
+
+#
+func _on_player_hitbox_body_entered(body):
+	if body.has_method("enemies"):
+		enemy_inattack_range = true
+
+#
+func _on_player_hitbox_body_exited(body):
+	if body.has_method("enemies"):
+		enemy_inattack_range = false

@@ -519,6 +519,10 @@ height = 8.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uoxnd"]
 size = Vector2(20, 10)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xohwh"]
+radius = 6.0
+height = 20.0
+
 [node name="Player" type="CharacterBody2D" unique_id=108962870 groups=["Player"]]
 y_sort_enabled = true
 script = ExtResource("1_rkbax")
@@ -528,9 +532,9 @@ texture_filter = 1
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_qpa8y")
 animation = &"attack_up"
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1223079847]
-visible = false
 position = Vector2(0, -4)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_sbwqj")
@@ -544,8 +548,21 @@ limit_bottom = 177
 [node name="HitPivot" type="Node2D" parent="." unique_id=2085250443]
 
 [node name="SwordHitbox" type="Area2D" parent="HitPivot" unique_id=114329386]
+position = Vector2(-2, -19)
+rotation = 1.5707964
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitPivot/SwordHitbox" unique_id=1007244788]
+position = Vector2(-4.168643e-14, 0)
+rotation = 1.5707964
 shape = SubResource("RectangleShape2D_uoxnd")
 
+[node name="PlayerHitbox" type="Area2D" parent="." unique_id=321298839]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PlayerHitbox" unique_id=1470878815]
+position = Vector2(0, -10)
+shape = SubResource("CapsuleShape2D_xohwh")
+
 [connection signal="body_entered" from="HitPivot/SwordHitbox" to="." method="_on_sword_hit"]
+[connection signal="body_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="PlayerHitbox" to="." method="_on_player_hitbox_body_exited"]
