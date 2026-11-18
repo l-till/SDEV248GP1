@@ -72,7 +72,17 @@ func _physics_process(delta):
 		attack()
 		return
 	
-	var direction = Input.get_vector("left","right","up","down")
+	var direction = Input.get_vector("left", "right", "up", "down")
+	if Input.is_physical_key_pressed(KEY_A):
+		direction.x -= 1
+	if Input.is_physical_key_pressed(KEY_D):
+		direction.x += 1
+	if Input.is_physical_key_pressed(KEY_W):
+		direction.y -= 1
+	if Input.is_physical_key_pressed(KEY_S):
+		direction.y += 1
+	if direction != Vector2.ZERO:
+		direction = direction.normalized()
 	
 	if direction == Vector2.ZERO:
 		player_state = PlayerState.IDLE

@@ -17,6 +17,9 @@ tile_map_data = PackedByteArray("AAAPAAYAAQAFAAYAAAAAAAIAAQAFAAYAAAAAAAMAAQAFAAY
 [node name="Layer4" parent="." index="3" unique_id=1995242306]
 tile_map_data = PackedByteArray("AAAPAAUAAQAFAAcAAAAPAAYAAQAFAAcAAAAPAAcAAQAFAAcAAAAAAAEAAQAFAAcAAAAAAAIAAQAFAAcAAAAAAAMAAQAFAAcAAAAAAAQAAQAFAAcAAAAAAAUAAQAFAAcAAAAAAAYAAQAFAAcAAAAAAAcAAQAFAAcAAAAAAAgAAQAFAAcAAAA=")
 
+[node name="Player" parent="." index="4" unique_id=108962870]
+position = Vector2(-3, 2)
+
 [node name="Doors" type="Node" parent="." index="5" unique_id=880862589]
 
 [node name="Door_N" parent="Doors" index="0" unique_id=90744966 instance=ExtResource("2_p1eiy")]
@@ -24,6 +27,9 @@ position = Vector2(208, -10)
 destination_level_tag = "a1"
 destination_door_tag = "S"
 spawn_direction = "down"
+
+[node name="CollisionShape2D" parent="Doors/Door_N" index="0" unique_id=123275524]
+position = Vector2(0, 5)
 
 [node name="Spawn" parent="Doors/Door_N" index="1" unique_id=418582168]
 position = Vector2(0, 26)

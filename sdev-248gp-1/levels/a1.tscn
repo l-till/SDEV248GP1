@@ -17,6 +17,9 @@ tile_map_data = PackedByteArray("AAADAAMAAQAFAAYAAAAEAAMAAQAFAAYAAAAFAAMAAQAFAAY
 [node name="Layer4" parent="." index="3" unique_id=1995242306]
 tile_map_data = PackedByteArray("AAAAAAkAAQAFAAcAAAAAAAgAAQAFAAcAAAAAAAcAAQAFAAcAAAAAAAYAAQAFAAcAAAAAAAUAAQAFAAcAAAAAAAQAAQAFAAcAAAAAAAMAAQAFAAcAAAAAAAIAAQAFAAcAAAAAAAEAAQAFAAcAAAA=")
 
+[node name="Player" parent="." index="4" unique_id=108962870]
+position = Vector2(128, 88)
+
 [node name="Doors" type="Node" parent="." index="5" unique_id=6005047]
 
 [node name="Door_E" parent="Doors" index="0" unique_id=90744966 instance=ExtResource("2_lmb71")]
