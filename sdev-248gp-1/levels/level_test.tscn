@@ -14,5 +14,5 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAHAAcAAAAAAAEAAQAHAAgAAAABAAAAAQAIAAc
 [node name="Player" parent="." index="4" unique_id=108962870]
 position = Vector2(54, 93)
 
-[node name="Enemy" parent="." index="5" unique_id=1351827843 instance=ExtResource("2_3wh16")]
-position = Vector2(162, 85)
+[node name="Slime" parent="." index="5" unique_id=1351827843 instance=ExtResource("2_3wh16")]
+position = Vector2(136, 84)

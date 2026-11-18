@@ -269,7 +269,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"attack_down",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -283,7 +283,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"attack_left",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -297,7 +297,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"attack_right",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -311,7 +311,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"attack_up",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -323,7 +323,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tqiix")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -519,8 +519,8 @@ height = 8.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uoxnd"]
 size = Vector2(20, 10)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xohwh"]
-radius = 6.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_65f5o"]
+radius = 5.0
 height = 20.0
 
 [node name="Player" type="CharacterBody2D" unique_id=108962870 groups=["Player"]]
@@ -532,7 +532,6 @@ texture_filter = 1
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_qpa8y")
 animation = &"attack_up"
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1223079847]
 position = Vector2(0, -4)
@@ -557,12 +556,13 @@ position = Vector2(-4.168643e-14, 0)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_uoxnd")
 
-[node name="PlayerHitbox" type="Area2D" parent="." unique_id=321298839]
+[node name="HurtBox" type="Area2D" parent="." unique_id=1888354124]
+collision_layer = 2
+collision_mask = 4
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="PlayerHitbox" unique_id=1470878815]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1729666]
 position = Vector2(0, -10)
-shape = SubResource("CapsuleShape2D_xohwh")
+shape = SubResource("CapsuleShape2D_65f5o")
 
 [connection signal="body_entered" from="HitPivot/SwordHitbox" to="." method="_on_sword_hit"]
-[connection signal="body_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_body_entered"]
-[connection signal="body_exited" from="PlayerHitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

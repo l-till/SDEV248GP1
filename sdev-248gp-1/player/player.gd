@@ -18,12 +18,14 @@ const HITBOX_POSITIONS := {
 
 # Variables
 @export var speed := 100
-@export var health := 3
+@export var knockback_strength := 120.0
+@export var knockback_decay := 500.0 
 var player_state = PlayerState.IDLE
 var last_direction := Vector2.DOWN
 var movable = true
 var life = 3: set = set_life
-var enemy_inattack_range = false
+var invincible := false
+var knockback := Vector2.ZERO
 var enemy_attack_cooldown = true
 var hit_this_swing: Array = []
 @onready var hit_pivot: Node2D = $HitPivot
@@ -32,7 +34,6 @@ var hit_this_swing: Array = []
 #
 func _ready():
 	GameState.on_trigger_player_spawn.connect(_on_spawn)
-#	sword_hitbox.body_entered.connect(_on_sword_hit)
 	sword_hitbox.monitoring = false
 	change_state(PlayerState.IDLE)
 
@@ -47,7 +48,7 @@ func set_life(value):
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position
 	$AnimatedSprite2D.play("walk_" + direction)
-	$AnimatedSprite2D.stop
+	$AnimatedSprite2D.stop()
 
 #
 func change_state(new_state):
@@ -57,8 +58,12 @@ func change_state(new_state):
 
 #
 func _physics_process(delta):
-	# cant move if attacking, stunned, or dead
-	if player_state in [PlayerState.ATTACKING, PlayerState.STUNNED, PlayerState.DEAD]:
+	if player_state == PlayerState.STUNNED:
+		velocity = velocity.move_toward(Vector2.ZERO, 600 * delta)
+		move_and_slide()
+		return
+
+	if player_state in [PlayerState.ATTACKING, PlayerState.DEAD]:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
@@ -99,7 +104,7 @@ func attack():
 	await $AnimatedSprite2D.animation_finished
 
 	sword_hitbox.set_deferred("monitoring", false)
-	if player_state != PlayerState.DEAD:
+	if player_state == PlayerState.ATTACKING:
 		change_state(PlayerState.IDLE)
 
 func _on_sword_hit(body):
@@ -109,7 +114,7 @@ func _on_sword_hit(body):
 		hit_this_swing.append(body)
 		body.take_damage(1, global_position)
 
-# function for animation
+#
 func play_anim(direction: Vector2):
 	var anim = ""
 	if player_state == PlayerState.IDLE:
@@ -129,11 +134,27 @@ func play_anim(direction: Vector2):
 		$AnimatedSprite2D.play(anim)
 
 #
-func _on_player_hitbox_body_entered(body):
-	if body.has_method("enemies"):
-		enemy_inattack_range = true
+func _on_hurt_box_body_entered(body):
+	if body.is_in_group("enemies"):
+		hurt(body.damage_amount)
 
 #
-func _on_player_hitbox_body_exited(body):
-	if body.has_method("enemies"):
-		enemy_inattack_range = false
+func hurt(amount: int, from_position := Vector2.ZERO):
+	if invincible or player_state == PlayerState.DEAD:
+		return
+	print("player took damage")
+	invincible = true
+	life -= amount
+	if from_position != Vector2.ZERO:
+		knockback = from_position.direction_to(global_position) * knockback_strength
+	sword_hitbox.set_deferred("monitoring", false)
+	await get_tree().create_timer(0.75).timeout
+	invincible = false
+	if life <= 0:
+		die()
+
+#
+func die():
+#	$AnimatedSprite2D.play("death")
+#	await $AnimatedSprite2D.animation_finished
+	GameState.game_over()

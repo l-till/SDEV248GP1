@@ -4,15 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://b36ngjga3kuvm" path="res://assets/icon.svg" id="2_7frlh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxqqj"]
-size = Vector2(25, 26)
+size = Vector2(18, 18)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_65f5o"]
 radius = 49.09175
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xohwh"]
-size = Vector2(22, 22)
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1351827843 groups=["enemies"]]
+[node name="Slime" type="CharacterBody2D" unique_id=1351827843 groups=["enemies"]]
 collision_layer = 4
 collision_mask = 7
 slide_on_ceiling = false
@@ -36,9 +35,13 @@ shape = SubResource("RectangleShape2D_fxqqj")
 shape = SubResource("CircleShape2D_65f5o")
 
 [node name="ContactArea" type="Area2D" parent="." unique_id=2086864300]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ContactArea" unique_id=1336071273]
 shape = SubResource("RectangleShape2D_xohwh")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="ContactArea" to="." method="_on_contact_area_body_entered"]
+[connection signal="body_exited" from="ContactArea" to="." method="_on_contact_area_body_exited"]
