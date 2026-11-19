@@ -23,15 +23,16 @@ func _physics_process(delta):
 		knockback = knockback.move_toward(Vector2.ZERO, knockback_decay * delta)
 		move_and_slide()
 		return
-	
+	$AnimatedSprite2D.play("jiggle")
 	if player_chase and is_instance_valid(player):
 		var direction = global_position.direction_to(player.global_position)
 		velocity = direction * speed
 		move_and_slide()
-		$AnimatedSprite2D.flip_h = direction.x < 0
+		$AnimatedSprite2D.flip_h = direction.x > 0
+		
 		#$AnimatedSprite2D.play("jiggle")
-	else:
-		velocity = Vector2.ZERO
+	#else:
+		#velocity = Vector2.ZERO
 		#$AnimatedSprite2D.play("idle")
 
 #
