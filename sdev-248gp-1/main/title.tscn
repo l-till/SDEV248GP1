@@ -1,3 +1,118 @@
-[gd_scene format=3 uid="uid://bartimdagu6n1"]
+[gd_scene load_steps=8 format=3 uid="uid://bartimdagu6n1"]
 
-[node name="Title" type="Node" unique_id=704734288]
+[ext_resource type="Script" path="res://main/title.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://bg5vv5vrftqt6" path="res://assets/Kenney Thick.ttf" id="2_font"]
+[ext_resource type="PackedScene" uid="uid://bj1wcdvoom0wx" path="res://levels/a1.tscn" id="3_a1"]
+
+[sub_resource type="Theme" id="Theme_title"]
+default_font = ExtResource("2_font")
+default_font_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_normal"]
+bg_color = Color(0.0431373, 0.172549, 0.14902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.933333, 0.721569, 0.329412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
+bg_color = Color(0.65098, 0.294118, 0.129412, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.870588, 0.580392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pressed"]
+bg_color = Color(0.831373, 0.603922, 0.239216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.870588, 0.580392, 1)
+
+[node name="Title" type="Control" unique_id=704734288]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+theme = SubResource("Theme_title")
+
+[node name="Backdrop" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch = true
+
+[node name="Viewport" type="SubViewport" parent="Backdrop"]
+size = Vector2i(255, 177)
+render_target_update_mode = 4
+gui_disable_input = true
+
+[node name="A1Background" parent="Backdrop/Viewport" instance=ExtResource("3_a1")]
+
+[node name="Tint" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0392157, 0.0862745, 0.0941176, 0.64)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="GameTitle" type="Label" parent="CenterContainer/Menu"]
+layout_mode = 2
+custom_minimum_size = Vector2(230, 46)
+theme_override_colors/font_color = Color(1, 0.862745, 0.580392, 1)
+theme_override_font_sizes/font_size = 23
+text = "Game Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="CenterContainer/Menu"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.960784, 0.839216, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+focus_mode = 2
+text = "Play"
+
+[node name="ExitButton" type="Button" parent="CenterContainer/Menu"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.960784, 0.839216, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+focus_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="CenterContainer/Menu/PlayButton" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/Menu/ExitButton" to="." method="_on_exit_pressed"]
