@@ -1,4 +1,4 @@
-# enemy.gd
+# slime.gd
 extends CharacterBody2D
 
 #
