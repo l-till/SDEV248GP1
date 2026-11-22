@@ -105,7 +105,11 @@ animations = [{
 "texture": SubResource("AtlasTexture_6jknn")
 }],
 "loop": 1,
+<<<<<<< HEAD
+"name": &"Idle",
+=======
 "name": &"jiggle",
+>>>>>>> 8007e97251d0cc3532b3c22d00f6ddc36f3b9a03
 "speed": 14.0
 }]
 
@@ -125,7 +129,12 @@ script = ExtResource("1_fw1ev")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=62536042]
 sprite_frames = SubResource("SpriteFrames_48tbw")
+<<<<<<< HEAD
+animation = &"Idle"
+autoplay = "Idle"
+=======
 animation = &"jiggle"
+>>>>>>> 8007e97251d0cc3532b3c22d00f6ddc36f3b9a03
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1431865557]
 visible = false
