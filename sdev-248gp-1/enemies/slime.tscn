@@ -105,58 +105,50 @@ animations = [{
 "texture": SubResource("AtlasTexture_6jknn")
 }],
 "loop": 1,
-<<<<<<< HEAD
-"name": &"Idle",
-=======
 "name": &"jiggle",
->>>>>>> 8007e97251d0cc3532b3c22d00f6ddc36f3b9a03
 "speed": 14.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxqqj"]
-size = Vector2(18, 18)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mks6d"]
+radius = 8.0
+height = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_65f5o"]
-radius = 49.09175
+radius = 78.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xohwh"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_n1ijq"]
+radius = 12.0
 
 [node name="Slime" type="CharacterBody2D" unique_id=1351827843 groups=["enemies"]]
+scale = Vector2(0.5, 0.5)
 collision_layer = 4
 collision_mask = 7
 slide_on_ceiling = false
 script = ExtResource("1_fw1ev")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=62536042]
+position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_48tbw")
-<<<<<<< HEAD
-animation = &"Idle"
-autoplay = "Idle"
-=======
 animation = &"jiggle"
->>>>>>> 8007e97251d0cc3532b3c22d00f6ddc36f3b9a03
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1431865557]
-visible = false
-shape = SubResource("RectangleShape2D_fxqqj")
+position = Vector2(0, 3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_mks6d")
 
 [node name="EnemyHitSound" type="AudioStreamPlayer" parent="." unique_id=1910664886]
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=763095639]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1936214264]
-visible = false
 shape = SubResource("CircleShape2D_65f5o")
 
 [node name="ContactArea" type="Area2D" parent="." unique_id=2086864300]
-visible = false
 collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ContactArea" unique_id=1336071273]
-visible = false
-shape = SubResource("RectangleShape2D_xohwh")
+shape = SubResource("CircleShape2D_n1ijq")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

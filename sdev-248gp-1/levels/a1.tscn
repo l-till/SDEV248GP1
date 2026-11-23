@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://4xpyo7vueykh" path="res://levels/level_base.tscn" id="1_kjeed"]
 [ext_resource type="PackedScene" uid="uid://c2tptqnx47jgi" path="res://items/door.tscn" id="2_lmb71"]
+[ext_resource type="PackedScene" uid="uid://dorouogbae2la" path="res://enemies/slime.tscn" id="3_7hicj"]
 
 [node name="A1" unique_id=1683283907 instance=ExtResource("1_kjeed")]
 
@@ -16,6 +17,8 @@ tile_map_data = PackedByteArray("AAADAAMAAQAFAAYAAAAEAAMAAQAFAAYAAAAFAAMAAQAFAAY
 
 [node name="Layer4" parent="." index="3" unique_id=1995242306]
 tile_map_data = PackedByteArray("AAAAAAkAAQAFAAcAAAAAAAgAAQAFAAcAAAAAAAcAAQAFAAcAAAAAAAYAAQAFAAcAAAAAAAUAAQAFAAcAAAAAAAQAAQAFAAcAAAAAAAMAAQAFAAcAAAAAAAIAAQAFAAcAAAAAAAEAAQAFAAcAAAA=")
+
+[node name="Player" parent="." index="4" unique_id=108962870 groups=["player"]]
 
 [node name="Doors" type="Node" parent="." index="5" unique_id=6005047]
 
@@ -51,6 +54,15 @@ spawn_direction = "up"
 
 [node name="Spawn" parent="Doors/Door_S" index="1" unique_id=418582168]
 position = Vector2(0, -25)
+
+[node name="Slime" parent="." index="6" unique_id=1351827843 instance=ExtResource("3_7hicj")]
+position = Vector2(191, 43)
+
+[node name="Slime2" parent="." index="7" unique_id=165433755 instance=ExtResource("3_7hicj")]
+position = Vector2(34, 68)
+
+[node name="Slime3" parent="." index="8" unique_id=1904476896 instance=ExtResource("3_7hicj")]
+position = Vector2(147, 126)
 
 [editable path="Doors/Door_E"]
 [editable path="Doors/Door_C"]

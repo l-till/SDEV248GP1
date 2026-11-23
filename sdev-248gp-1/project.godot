@@ -29,8 +29,9 @@ window/stretch/scale_mode="integer"
 
 [global_group]
 
-Player=""
 enemies=""
+wizard_spawns=""
+player=""
 
 [input]
 

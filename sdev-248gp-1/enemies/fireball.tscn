@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b25p6emqpj22n"]
 
 [ext_resource type="Texture2D" uid="uid://dfilj1j6vapxi" path="res://assets/FIREBALL.png" id="1_5ltpx"]
+[ext_resource type="Script" uid="uid://ci5rfujp0c8fo" path="res://enemies/fireball.gd" id="1_xulmx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ar33"]
 atlas = ExtResource("1_5ltpx")
@@ -105,7 +106,10 @@ animations = [{
 radius = 4.0
 height = 8.0
 
-[node name="Area2D" type="Area2D" unique_id=5750278]
+[node name="Area2D" type="Area2D" unique_id=5750278 groups=["enemies"]]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_xulmx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1751888322]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
@@ -114,3 +118,5 @@ frame_progress = 0.6595486
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=394472887]
 shape = SubResource("CapsuleShape2D_yf5fn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

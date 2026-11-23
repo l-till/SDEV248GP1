@@ -7,7 +7,7 @@ signal on_trigger_player_spawn
 # constants
 const title_screen = "res://main/title.tscn"
 const game_over_screen = "res://main/game_over.tscn"
-
+const win_screen = "res://main/win.tscn"
 const scene_b2 = preload("res://levels/b2.tscn")
 const scene_b2c = preload("res://levels/b2c.tscn")
 const scene_b1 = preload("res://levels/b1.tscn")
@@ -47,8 +47,14 @@ func go_to_level(level_tag, destination_tag):
 func trigger_player_spawn(position: Vector2, direction: String):
 	on_trigger_player_spawn.emit(position, direction)
 
+#
 func game_over():
 	get_tree().change_scene_to_file(game_over_screen)
 
+#
+func win():
+	get_tree().change_scene_to_file(win_screen)
+
+#
 func restart():
 	get_tree().change_scene_to_file(title_screen)

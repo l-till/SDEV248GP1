@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 class_name Player
 
-signal life_changed(new_life)
+signal life_changed
 
 # Enums
 enum PlayerState {IDLE, WALKING, ATTACKING, ROLLING, STUNNED, DEAD }
@@ -139,12 +139,12 @@ func _on_hurt_box_body_entered(body):
 		hurt(body.damage_amount)
 
 #
-func hurt(amount: int, from_position := Vector2.ZERO):
+func hurt(hurt_amount: int, from_position := Vector2.ZERO):
 	if invincible or player_state == PlayerState.DEAD:
 		return
 	print("player took damage")
 	invincible = true
-	life -= amount
+	life -= hurt_amount
 	if from_position != Vector2.ZERO:
 		knockback = from_position.direction_to(global_position) * knockback_strength
 	sword_hitbox.set_deferred("monitoring", false)
