@@ -150,7 +150,7 @@ func hurt(hurt_amount: int, from_position := Vector2.ZERO):
 	sword_hitbox.set_deferred("monitoring", false)
 	await get_tree().create_timer(0.75).timeout
 	invincible = false
-	if life <= 0:
+	if GameState.life <= 0:
 		die()
 
 #
