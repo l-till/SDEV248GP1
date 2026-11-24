@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cqmqbsm2yh5vn"]
+
+[ext_resource type="AudioStream" uid="uid://dcpkvwwjikde1" path="res://assets/River-Dance-Folk-Fantasy-Music(chosic.com) (1).mp3" id="1_lipqs"]
+
+[node name="WorldMusic" type="AudioStreamPlayer" unique_id=1899884666]
+stream = ExtResource("1_lipqs")
+volume_db = -15.0
+autoplay = true
