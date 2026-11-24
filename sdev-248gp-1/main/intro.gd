@@ -17,3 +17,4 @@ func _unhandled_input(event: InputEvent) -> void:
 	if pressed and not _transitioning:
 		_transitioning = true
 		get_tree().change_scene_to_file("res://levels/b2.tscn")
+		GameState.update_room_music("b2")
