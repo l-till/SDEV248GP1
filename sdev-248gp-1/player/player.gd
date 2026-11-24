@@ -3,17 +3,15 @@ extends CharacterBody2D
 
 class_name Player
 
-signal life_changed
-
 # Enums
 enum PlayerState {IDLE, WALKING, ATTACKING, ROLLING, STUNNED, DEAD }
 
 # Constants
 const HITBOX_POSITIONS := {
 	"right": {"pos": Vector2(10, -6),   "rot": 0},
-	"down":  {"pos": Vector2(2, 1),   "rot": 90},
+	"down":  {"pos": Vector2(2, 2),   "rot": 90},
 	"left":  {"pos": Vector2(-10, -6),  "rot": 0},
-	"up":    {"pos": Vector2(-2, -19),  "rot": 90},
+	"up":    {"pos": Vector2(-2, -20),  "rot": 90},
 }
 
 # Variables
@@ -22,8 +20,8 @@ const HITBOX_POSITIONS := {
 @export var knockback_decay := 500.0 
 var player_state = PlayerState.IDLE
 var last_direction := Vector2.DOWN
+var life = GameState.life
 var movable = true
-var life = 3: set = set_life
 var invincible := false
 var knockback := Vector2.ZERO
 var enemy_attack_cooldown = true
@@ -38,10 +36,12 @@ func _ready():
 	change_state(PlayerState.IDLE)
 
 #
-func set_life(value):
-	life = value
-	life_changed.emit(life)
-	if life <= 0:
+func get_life() -> int:
+	return GameState.life
+
+#
+func set_life():
+	if GameState.life <= 0:
 		change_state(PlayerState.DEAD)
 
 #
@@ -144,7 +144,7 @@ func hurt(hurt_amount: int, from_position := Vector2.ZERO):
 		return
 	print("player took damage")
 	invincible = true
-	life -= hurt_amount
+	GameState.life -= hurt_amount
 	if from_position != Vector2.ZERO:
 		knockback = from_position.direction_to(global_position) * knockback_strength
 	sword_hitbox.set_deferred("monitoring", false)

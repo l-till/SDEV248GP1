@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c25b52ahxgbbx"]
 
-[ext_resource type="Script" uid="uid://cyg1x7jbaj1th" path="res://main/intro.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://xbw1sap7ej1p" path="res://main/intro.gd" id="1_script"]
 [ext_resource type="FontFile" uid="uid://bg5vv5vrftqt6" path="res://assets/Kenney Thick.ttf" id="2_font"]
 [ext_resource type="PackedScene" uid="uid://bj1wcdvoom0wx" path="res://levels/a1.tscn" id="3_a1"]
 
@@ -83,7 +83,7 @@ custom_minimum_size = Vector2(215, 72)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.960784, 0.839216, 1)
 theme_override_font_sizes/font_size = 7
-text = "You picked a fight with the wrong wizard and he teleported you out into the middle of nowhere. You have to defeat him and his slime army with just your knife to make it out. Can you do it?"
+text = "You picked a fight with the wrong wizard and he teleported you to the top of a mountain. You have to defeat him and his slime army  to make it out. Good Luck."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

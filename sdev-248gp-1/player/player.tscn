@@ -517,11 +517,11 @@ radius = 4.0
 height = 8.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uoxnd"]
-size = Vector2(20, 10)
+size = Vector2(20, 13)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_65f5o"]
 radius = 5.0
-height = 18.0
+height = 16.0
 
 [node name="Player" type="CharacterBody2D" unique_id=108962870 groups=["player"]]
 y_sort_enabled = true
@@ -552,7 +552,7 @@ rotation = 1.5707964
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitPivot/SwordHitbox" unique_id=1007244788]
-position = Vector2(-4.168643e-14, 0)
+position = Vector2(0, 5.364221e-08)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_uoxnd")
 

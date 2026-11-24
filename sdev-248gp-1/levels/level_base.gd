@@ -5,7 +5,7 @@ extends Node2D
 func _ready():
 	if GameState.spawn_door_tag != null:
 		_on_level_spawn(GameState.spawn_door_tag)
-	$Player.life_changed.connect($CanvasLayer/HUD.update_life)
+	GameState.life_changed.connect($CanvasLayer/HUD.update_life)
 	$CanvasLayer/HUD.update_life($Player.life) 
 
 #

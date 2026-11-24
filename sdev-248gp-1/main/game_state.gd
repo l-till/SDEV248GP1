@@ -3,6 +3,7 @@ extends Node
 
 #
 signal on_trigger_player_spawn
+signal life_changed
 
 # constants
 const title_screen = "res://main/title.tscn"
@@ -16,10 +17,22 @@ const scene_a1 = preload("res://levels/a1.tscn")
 const scene_a1c = preload("res://levels/a1c.tscn")
 const scene_a2 = preload("res://levels/a2.tscn")
 
+const START_LIFE = 3
 
 # variables
 var spawn_door_tag
+var life := START_LIFE: set = set_life
 
+#
+func set_life(value):
+	life = max(value, 0)
+	life_changed.emit(life)
+
+#
+func reset():
+	life = START_LIFE
+
+#
 func go_to_level(level_tag, destination_tag):
 	var scene_to_load
 	
@@ -57,4 +70,5 @@ func win():
 
 #
 func restart():
+	reset()
 	get_tree().change_scene_to_file(title_screen)

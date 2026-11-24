@@ -3,6 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://4xpyo7vueykh" path="res://levels/level_base.tscn" id="1_6xw26"]
 [ext_resource type="PackedScene" uid="uid://c2tptqnx47jgi" path="res://items/door.tscn" id="2_foajt"]
 [ext_resource type="PackedScene" uid="uid://cwpir4gi4m7r" path="res://npc/sage.tscn" id="3_foajt"]
+[ext_resource type="Script" uid="uid://dhouhxldk8yml" path="res://levels/story_text.gd" id="4_2gbad"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_foajt"]
+bg_color = Color(0.0470588, 0.113725, 0.105882, 0.94)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.933333, 0.721569, 0.329412, 1)
 
 [node name="B2C" unique_id=1683283907 instance=ExtResource("1_6xw26")]
 
@@ -27,6 +36,34 @@ scale = Vector2(2, 1)
 position = Vector2(0, -28)
 
 [node name="Sage" parent="." index="6" unique_id=1393153557 instance=ExtResource("3_foajt")]
-position = Vector2(128, 46)
+position = Vector2(131, 26)
+
+[node name="CenterContainer" type="CenterContainer" parent="." index="8" unique_id=1273702045]
+offset_top = 48.0
+offset_right = 256.0
+offset_bottom = 124.0
+size_flags_vertical = 4
+
+[node name="MessagePanel" type="PanelContainer" parent="CenterContainer" index="0" unique_id=454586303]
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_foajt")
+
+[node name="Message" type="VBoxContainer" parent="CenterContainer/MessagePanel" index="0" unique_id=1759265927]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="StoryText" type="Label" parent="CenterContainer/MessagePanel/Message" index="0" unique_id=255832567]
+custom_minimum_size = Vector2(215, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.960784, 0.839216, 1)
+theme_override_font_sizes/font_size = 7
+text = "It's dangerous to go alone......
+Hmm?
+No I'm not going out there"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("4_2gbad")
 
 [editable path="Doors/Door_C"]
