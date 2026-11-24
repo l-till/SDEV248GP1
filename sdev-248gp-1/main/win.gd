@@ -1,3 +1,4 @@
+# win.gd
 extends Control
 
 var _transitioning := false

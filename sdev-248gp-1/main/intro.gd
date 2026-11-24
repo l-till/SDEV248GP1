@@ -1,3 +1,4 @@
+# intro.gd
 extends Control
 
 var _transitioning := false

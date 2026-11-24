@@ -18,8 +18,6 @@ tile_map_data = PackedByteArray("AAADAAMAAQAFAAYAAAAFAAMAAQAFAAYAAAADAAUAAQAFAAY
 [node name="Layer4" parent="." index="3" unique_id=1995242306]
 tile_map_data = PackedByteArray("AAAPAAcAAQAFAAcAAAAPAAYAAQAFAAcAAAAPAAUAAQAFAAcAAAAPAAQAAQAFAAcAAAAPAAMAAQAFAAcAAAA=")
 
-[node name="Player" parent="." index="4" unique_id=108962870 groups=["player"]]
-
 [node name="Doors" type="Node" parent="." index="5" unique_id=1119239053]
 
 [node name="Door_S" parent="Doors" index="0" unique_id=90744966 instance=ExtResource("2_csc1d")]

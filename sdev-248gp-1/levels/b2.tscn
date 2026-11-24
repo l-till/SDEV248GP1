@@ -17,7 +17,7 @@ tile_map_data = PackedByteArray("AAAEAAAAAQAEAAQAAAAAAAYAAQAFAAYAAAAPAAUAAQAFAAY
 [node name="Layer4" parent="." index="3" unique_id=1995242306]
 tile_map_data = PackedByteArray("AAAAAAUAAQAFAAcAAAAAAAYAAQAFAAcAAAAPAAQAAQAFAAcAAAAPAAUAAQAFAAcAAAAPAAYAAQAFAAcAAAAPAAcAAQAFAAcAAAAAAAcAAQAFAAcAAAA=")
 
-[node name="Player" parent="." index="4" unique_id=108962870 groups=["player"]]
+[node name="Player" parent="." index="4" unique_id=108962870]
 position = Vector2(117, 108)
 
 [node name="Doors" type="Node" parent="." index="5" unique_id=1534243040]

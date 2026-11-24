@@ -21,9 +21,6 @@ destination_level_tag = "b1"
 destination_door_tag = "C"
 spawn_direction = "up"
 
-[node name="CollisionShape2D" parent="Doors/Door_C" index="0" unique_id=123275524]
-visible = false
-
 [node name="Spawn" parent="Doors/Door_C" index="1" unique_id=418582168]
 position = Vector2(0, -25)
 
