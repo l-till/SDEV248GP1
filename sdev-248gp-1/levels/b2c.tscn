@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://4xpyo7vueykh" path="res://levels/level_base.tscn" id="1_6xw26"]
 [ext_resource type="PackedScene" uid="uid://c2tptqnx47jgi" path="res://items/door.tscn" id="2_foajt"]
 [ext_resource type="PackedScene" uid="uid://cwpir4gi4m7r" path="res://npc/sage.tscn" id="3_foajt"]
-[ext_resource type="Script" uid="uid://dhouhxldk8yml" path="res://levels/story_text.gd" id="4_2gbad"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_foajt"]
 bg_color = Color(0.0470588, 0.113725, 0.105882, 0.94)
@@ -64,6 +63,5 @@ No I'm not going out there"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-script = ExtResource("4_2gbad")
 
 [editable path="Doors/Door_C"]
