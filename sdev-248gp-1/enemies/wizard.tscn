@@ -132,6 +132,7 @@ health = 6
 fireball_scene = ExtResource("2_mivnp")
 fade_time = 1.0
 windup_time = 1.0
+recover_time = 1.2
 hidden_time = 2.0
 max_distance = 400.0
 
