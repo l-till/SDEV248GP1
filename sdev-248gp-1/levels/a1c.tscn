@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://4xpyo7vueykh" path="res://levels/level_base.tscn" id="1_juoc2"]
 [ext_resource type="PackedScene" uid="uid://c2tptqnx47jgi" path="res://items/door.tscn" id="2_5e703"]
 [ext_resource type="PackedScene" uid="uid://cwpir4gi4m7r" path="res://npc/sage.tscn" id="3_dycqa"]
+[ext_resource type="AudioStream" uid="uid://c65i3mkc0lp8q" path="res://assets/Komiku_-_14_-_Sad_walk_with_sad_melodica(chosic.com).mp3" id="4_15y2q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dycqa"]
 bg_color = Color(0.0470588, 0.113725, 0.105882, 0.94)
@@ -65,5 +66,9 @@ text = "Rest a moment and let me heal your wounds"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="9" unique_id=156228159]
+stream = ExtResource("4_15y2q")
+autoplay = true
 
 [editable path="Doors/Door_C"]

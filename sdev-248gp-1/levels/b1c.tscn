@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://4xpyo7vueykh" path="res://levels/level_base.tscn" id="1_85t5w"]
 [ext_resource type="PackedScene" uid="uid://c2tptqnx47jgi" path="res://items/door.tscn" id="2_sttyi"]
+[ext_resource type="AudioStream" uid="uid://c65i3mkc0lp8q" path="res://assets/Komiku_-_14_-_Sad_walk_with_sad_melodica(chosic.com).mp3" id="3_l41en"]
 
 [node name="B1C" unique_id=1683283907 instance=ExtResource("1_85t5w")]
 
@@ -25,5 +26,10 @@ visible = false
 
 [node name="Spawn" parent="Doors/Door_C" index="1" unique_id=418582168]
 position = Vector2(0, -25)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="7" unique_id=1364807376]
+stream = ExtResource("3_l41en")
+volume_db = -4.86
+autoplay = true
 
 [editable path="Doors/Door_C"]
